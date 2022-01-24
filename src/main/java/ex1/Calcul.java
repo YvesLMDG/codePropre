@@ -1,12 +1,24 @@
 package ex1;
 
-public class calcul {
-
-	public int get1(int a, int b){
+/** Classe qui propose des opérations sur les nombres
+ *
+ * @author Untel
+ */
+public class Calcul {
+	/** Retourne l'addition de 2 entiers
+	 * @param a entier 1
+	 * @param b entier 2
+	 * @return int
+	 */
+	public int addition(int a, int b){
 		return a+b;
 	}
-	
-	public int get2(int a, int b){
+	/** Retourne la soustraction de 2 entiers
+	 * @param a entier 1
+	 * @param b entier 2
+	 * @return int
+	 */
+	public int soustraction(int a, int b){
 		return a-b;
 	}
 }
