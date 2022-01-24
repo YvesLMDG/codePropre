@@ -3,28 +3,33 @@ package ex3;
 public class Zoo {
 
 	private String nom;
-	private SavaneAfricaine savaneAfricaine;
-	private ZoneCarnivore zoneCarnivore;
-	private FermeReptile fermeReptile;
-	private Aquarium aquarium;
+	private IZoneZoo aquarium;
+	private IZoneZoo fermeReptile;
+	private IZoneZoo savaneAfricaine;
+	private IZoneZoo zoneCarnivore;
 	
 	public Zoo(String nom){
-		this.nom = nom;
+		setNom(nom);
+		savaneAfricaine = new SavaneAfricaine();
+		zoneCarnivore = new ZoneCarnivore();
+		fermeReptile = new FermeReptile();
+		aquarium = new Aquarium();
 	}
 	
-	public void addAnimal(String nomAnimal, String typeAnimal, String comportement){
-		if (typeAnimal.equals("MAMMIFERE") && comportement.equals("CARNIVORE")){
-			zoneCarnivore.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("MAMMIFERE") && comportement.equals("HERBIVORE")){
-			savaneAfricaine.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("REPTILE")){
-			fermeReptile.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("POISSON")){
-			aquarium.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
+	public void addAnimal(Poisson poisson){
+		aquarium.add(poisson);
+	}
+	
+	public void addAnimal(Serpent reptile){
+		fermeReptile.add(reptile);
+	}
+	
+	public void addAnimal(MammifereHerbivore mammifereHerbivore){
+		savaneAfricaine.add(mammifereHerbivore);
+	}
+	
+	public void addAnimal(MammifereCarnivore mammifereCarnivore){
+		zoneCarnivore.add(mammifereCarnivore);
 	}
 	
 	public void afficherListeAnimaux(){
@@ -34,17 +39,44 @@ public class Zoo {
 		aquarium.afficherListeAnimaux();
 	}
 
-	/** Getter for nom
-	 * @return the nom
-	 */
 	public String getNom() {
 		return nom;
 	}
 
-	/** Setter
-	 * @param nom the nom to set
-	 */
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
+	public IZoneZoo getSavaneAfricaine() {
+		return savaneAfricaine;
+	}
+
+	public IZoneZoo getZoneCarnivore() {
+		return zoneCarnivore;
+	}
+
+	public IZoneZoo getFermeReptile() {
+		return fermeReptile;
+	}
+
+	public IZoneZoo getAquarium() {
+		return aquarium;
+	}
+
+	public void setSavaneAfricaine(IZoneZoo savaneAfricaine) {
+		this.savaneAfricaine = savaneAfricaine;
+	}
+
+	public void setZoneCarnivore(IZoneZoo zoneCarnivore) {
+		this.zoneCarnivore = zoneCarnivore;
+	}
+
+	public void setFermeReptile(IZoneZoo fermeReptile) {
+		this.fermeReptile = fermeReptile;
+	}
+
+	public void setAquarium(IZoneZoo aquarium) {
+		this.aquarium = aquarium;
+	}
+	
 }
