@@ -18,7 +18,7 @@ public abstract class CompteBancaire {
 	 */
 	public CompteBancaire(double solde) {
 		super();
-		this.solde = solde;
+		setSolde(solde);
 	}
 
 	/** Ajoute un montant au solde
@@ -26,9 +26,14 @@ public abstract class CompteBancaire {
 	 * @param montant
 	 */
 	public void ajouterMontant(double montant){
-		this.solde += montant;
+		setSolde(getSolde()-montant);
 	}
 
+	/**
+	 * Méthode abstraite débitant @param montant au solde
+	 */
+	public abstract void debiterMontant(double montant);
+	
 	/** Retourne quel serait le nouveau solde après débit du montant
 	 *  
 	 * @param montant

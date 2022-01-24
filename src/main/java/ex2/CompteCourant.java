@@ -21,13 +21,14 @@ public class CompteCourant extends CompteBancaire{
 	 */
 	public CompteCourant(double solde, double decouvert) {
 		super(solde);
+		setDecouvert(decouvert);
 	}
 	
 	/**
 	 * Débite @param montant au solde si le solde reste supérieur au découvert authorisé
 	 */
 	public void debiterMontant(double montant){
-		double soldeTemp = getSolde() - montant;
+		double soldeTemp = calculDebit(montant);
 		if (soldeTemp < getDecouvert()) {
 			setSolde(soldeTemp);
 		}

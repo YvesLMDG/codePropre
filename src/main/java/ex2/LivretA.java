@@ -23,7 +23,7 @@ public class LivretA extends CompteBancaire {
 	 */
 	public LivretA(double solde, double tauxRemuneration) {
 		super(solde);
-		this.tauxRemuneration=tauxRemuneration;
+		setTauxRemuneration(tauxRemuneration);
 	}
 
 	/**
