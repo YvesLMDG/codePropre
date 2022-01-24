@@ -17,19 +17,19 @@ public class Zoo {
 	}
 	
 	public void addAnimal(Poisson poisson){
-		aquarium.add(poisson);
+		getAquarium().add(poisson);
 	}
 	
 	public void addAnimal(Serpent reptile){
-		fermeReptile.add(reptile);
+		getFermeReptile().add(reptile);
 	}
 	
 	public void addAnimal(MammifereHerbivore mammifereHerbivore){
-		savaneAfricaine.add(mammifereHerbivore);
+		getSavaneAfricaine().add(mammifereHerbivore);
 	}
 	
 	public void addAnimal(MammifereCarnivore mammifereCarnivore){
-		zoneCarnivore.add(mammifereCarnivore);
+		getZoneCarnivore().add(mammifereCarnivore);
 	}
 	
 	public void afficherListeAnimaux(){
