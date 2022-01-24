@@ -11,31 +11,27 @@ public class Pret {
 	private Date dateDebut;
 	private Date dateFin;
 	
-	public Pret(double capital, double taux, Date dateDebut) {
+	
+	public Pret(double capital, double taux) {
 		super();
-		this.strategy = new PretATerme();
-		this.capital = capital;
-		this.taux = taux;
-		this.dateDebut = dateDebut;
+		setCapital(capital);
+		setTaux(taux);
+	}
+	public Pret(double capital, double taux, Date dateDebut) {
+		this(capital,taux);
+		setStrategy(new PretATerme());
+		setDateDebut(dateDebut);
 	}
 	
 	public Pret(double capital, double taux, Date dateDebut, Date dateFin) {
-		super();
-		this.strategy = new PretATerme();
-		this.capital = capital;
-		this.taux = taux;
-		this.dateDebut = dateDebut;
-		this.dateFin = dateFin;
+		this(capital,taux, dateDebut);
+		setDateFin(dateFin);
 	}
 	
 	public Pret(double capital, double capitalRestantDu, double taux, Date dateDebut, Date dateFin) {
-		super();
-		this.strategy = new PretATerme();
-		this.capital = capital;
-		this.capitalRestantDu = capitalRestantDu;
-		this.taux = taux;
-		this.dateDebut = dateDebut;
-		this.dateFin = dateFin;
+		this(capital,taux, dateDebut,dateFin);
+		setCapitalRestantDu(capitalRestantDu);
+
 	}
 
 	/** Getter for strategy
